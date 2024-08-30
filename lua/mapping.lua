@@ -2,7 +2,7 @@ local utils = require("utils")
 local map = vim.keymap.set
 
 map("n", "<leader>q", "<cmd>q<cr>")
-map("n", "<leader>s", "<cmd>w<cr>")
+map("n", "<leader>w", "<cmd>w<cr>")
 
 -- Barbar keymap setup
 local barbar_opts = { silent = true }
