@@ -6,6 +6,6 @@ return {
 
     local map = vim.keymap.set
     map("n", "<leader>h", "<cmd>ToggleTerm<cr>")
-    map("n", "<C-x>", "<C-\\><C-n>")
+    map("t", "<C-x>", "<C-\\><C-n>")
   end
 }
