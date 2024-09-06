@@ -1,8 +1,13 @@
 local utils = require("utils")
 local map = vim.keymap.set
 
-map("n", "<leader>q", "<cmd>q<cr>")
+map("n", "<leader>qq", "<cmd>q<cr>")
+map("n", "<leader>qa", "<cmd>qa<cr>")
 map("n", "<leader>w", "<cmd>w<cr>")
+
+-- diagnostic
+map("n", "<leader>g]", vim.diagnostic.goto_next, {})
+map("n", "<leader>g[", vim.diagnostic.goto_prev, {})
 
 -- Barbar keymap setup
 local barbar_opts = { silent = true }
@@ -30,3 +35,8 @@ map("n", "<leader>blc", "<cmd>BufferCloseBuffersRight<cr>", dsc("Close the right
 map("n", "<leader>bp", "<cmd>BufferPin<cr>", dsc("Pin/Unpin the current tab"))
 map("n", "<leader>bbc", "<cmd>BufferCloseAllButCurrent<cr>", dsc(""))
 map("n", "<leader>bbpc", "<cmd>BufferCloseAllButPinned<cr>", dsc(""))
+
+map("n", "<c-h>", "<c-w>h")
+map("n", "<c-j>", "<c-w>j")
+map("n", "<c-k>", "<c-w>k")
+map("n", "<c-l>", "<c-w>l")
