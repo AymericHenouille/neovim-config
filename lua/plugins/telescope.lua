@@ -1,17 +1,19 @@
 return {
   {
-    "nvim-telescope/telescope.nvim", tag = "0.1.8",
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
     dependencies = {
-      { "nvim-lua/plenary.nvim" },
+      { "nvim-lua/plenary.nvim" }
     },
     config = function()
       local builtin = require("telescope.builtin")
+      local opts = {}
       local map = vim.keymap.set
-      map("n", "<leader>ff", builtin.find_files, {})
-      map("n", "<leader>fg", builtin.live_grep, {})
-      map("n", "<leader>fb", builtin.buffers, {})
-      map("n", "<leader>fh", builtin.help_tags, {})
-      map("n", "<leader>fq", builtin.quickfix, {})
+      map("n", "<leader>ff", builtin.find_files, opts)
+      map("n", "<leader>fg", builtin.live_grep, opts)
+      map("n", "<leader>fb", builtin.buffers, opts)
+      map("n", "<leader>fh", builtin.help_tags, opts)
+      map("n", "<leader>fq", builtin.quickfix, opts)
     end
   },
   {
@@ -29,4 +31,3 @@ return {
     end
   }
 }
-

@@ -1,5 +1,4 @@
-local utils = require("utils")
-local servers = require("config.lspservers")
+local lsp = require("config.lsp")
 
 return {
   {
@@ -11,36 +10,26 @@ return {
           package_pending = "➜",
           package_uninstalled = "✗"
         }
-      },
+      }
     }
   },
   {
-    "neovim/nvim-lspconfig",
-    lazy = false,
+    "williamboman/mason-lspconfig.nvim",
     dependencies = {
-      { "hrsh7th/cmp-nvim-lsp" },
       {
-        "williamboman/mason-lspconfig.nvim",
-        lazy = false,
-        opts = {
-          ensure_installed = utils.merge_tables(servers, {
-
-          })
-        }
+        "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile" },
       },
+      { "hrsh7th/cmp-nvim-lsp" }
     },
     config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
-      for _, value in pairs(servers) do
-        lspconfig[value].setup({
-          capabilities = capabilities
-        })
-      end
-      local map = vim.keymap.set
-      map("n", "<leader>k", vim.lsp.buf.hover, {})
-      map("n", "<leader>gd", vim.lsp.buf.definition, {})
-      map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+      local mason_lspconfig = require("mason-lspconfig")
+      mason_lspconfig.setup({
+        ensure_installed = lsp.lspservers,
+        automatic_installation = true,
+        handlers = lsp.lsphandlers(lspconfig)
+      })
     end
-  }
+  },
 }

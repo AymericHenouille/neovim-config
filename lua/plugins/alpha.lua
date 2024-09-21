@@ -1,12 +1,14 @@
 return {
   "goolord/alpha-nvim",
-  dependencies = {
-    { "nvim-tree/nvim-web-devicons" }
-  },
-  config = function()
-    local alpha = require("alpha")
-    local theme = require("alpha.themes.startify")
-    theme.file_icons.provider = "devicons"
-    alpha.setup(theme.config)
+  config = function ()
+    local dashboard = require("alpha.themes.dashboard")
+    dashboard.section.header.val = require("utils.ascii")["ewok"]
+    dashboard.section.buttons.val = {
+      dashboard.button( "e", "  > New file" , "<CMD>ene <BAR> startinsert <CR>"),
+      dashboard.button( "f", "  > Find file", "<CMD>Telescope find_files<CR>"),
+      dashboard.button( "r", "  > Recent"   , "<CMD>Telescope oldfiles<CR>"),
+      dashboard.button( "q", "  > Quit NVIM", "<CMD>qa<CR>"),
+    }
+    require("alpha").setup(dashboard.config)
   end
-}
+};

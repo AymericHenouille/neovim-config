@@ -1,4 +1,4 @@
-require("options")
 require("config.lazy")
-require("mapping")
-
+require("mapping.window")
+require("mapping.save")
+require("commands.diagnostic")
