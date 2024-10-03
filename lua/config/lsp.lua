@@ -6,6 +6,7 @@ local lspservers = {
   "html",
   "lua_ls",
   "ts_ls",
+  "jdtls"
 }
 
 local function lsphandlers(lspconfig)
@@ -16,7 +17,7 @@ local function lsphandlers(lspconfig)
     capabilities = capabilities,
   }
 
-  local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+  local signs = { Error = "", Warn = "", Hint = "󰧑", Info = "" }
   for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })

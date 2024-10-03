@@ -5,9 +5,9 @@ return {
     dashboard.section.header.val = require("utils.ascii")["ewok"]
     dashboard.section.buttons.val = {
       dashboard.button( "e", "  > New file" , "<CMD>ene <BAR> startinsert <CR>"),
-      dashboard.button( "f", "  > Find file", "<CMD>Telescope find_files<CR>"),
+      dashboard.button( "f", "  > Find file", "<CMD>Telescope find_files<CR>"),
       dashboard.button( "r", "  > Recent"   , "<CMD>Telescope oldfiles<CR>"),
-      dashboard.button( "q", "  > Quit NVIM", "<CMD>qa<CR>"),
+      dashboard.button( "q", "  > Quit NVIM", "<CMD>qa<CR>"),
     }
     require("alpha").setup(dashboard.config)
   end

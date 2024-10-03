@@ -6,11 +6,10 @@ return {
   config = function()
     local gitsigns = require("gitsigns")
     gitsigns.setup({})
-    local opts = { silent = true }
-    local map = vim.keymap.set
-    map("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<cr>", opts)
-    map("n", "<leader>gtb", "<cmd>Gitsigns toggle_current_line_blame<cr>", opts)
-    map("n", "<leader>gtd", "<cmd>Gitsigns toggle_deleted<cr>", opts)
+    local nmap = require("utils.map").nmap
+    nmap("<leader>gh", "<cmd>Gitsigns preview_hunk<cr>", "Display the preview hunk.")
+    nmap("<leader>gtb", "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle the git blame on the line.")
+    nmap("<leader>gtd", "<cmd>Gitsigns toggle_deleted<cr>", "Toggle the deleted lines since the last commit.")
   end
 }
 
