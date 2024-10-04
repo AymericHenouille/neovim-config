@@ -17,18 +17,12 @@ local function lsphandlers(lspconfig)
     capabilities = capabilities,
   }
 
-  local signs = { Error = "", Warn = "", Hint = "󰧑", Info = "" }
-  for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-  end
-
   return {
     function(servername)
       lspconfig[servername].setup(opts)
     end,
     ["lua_ls"] = function()
-      lspconfig.lua_ls.setup {
+      lspconfig.lua_ls.setup({
         on_attach = on_attach,
         capabilities = capabilities,
         settings = {
@@ -38,7 +32,7 @@ local function lsphandlers(lspconfig)
             },
           }
         }
-      }
+      })
     end
   }
 end

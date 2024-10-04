@@ -1,5 +1,3 @@
-local lsp = require("config.lsp")
-
 return {
   {
     "williamboman/mason.nvim",
@@ -23,8 +21,16 @@ return {
       { "hrsh7th/cmp-nvim-lsp" }
     },
     config = function()
+      local lsp = require("config.lsp")
       local lspconfig = require("lspconfig")
       local mason_lspconfig = require("mason-lspconfig")
+
+      local signs = { Error = "", Warn = "", Hint = "󰧑", Info = "" }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+      end
+
       mason_lspconfig.setup({
         ensure_installed = lsp.lspservers,
         automatic_installation = true,

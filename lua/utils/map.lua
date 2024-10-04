@@ -26,7 +26,7 @@ local function map(mode, keymap, action, options)
     opts = {
       silent = true,
       desc = description,
-      -- buffer = vim.api.nvim_get_current_buf()
+      buffer = vim.api.nvim_get_current_buf()
     }
   end
 
