@@ -1,10 +1,4 @@
-local function nmap(keymap, remap, description)
-  local map = vim.keymap.set
-  local opts = { desc = description, silent = true }
-  map("n", keymap, remap, opts)
-end
-
-
+local nmap = require("utils.map").nmap
 nmap("<C-h>", "<C-w><C-h>", "Move focus to the left windows.")
 nmap("<C-j>", "<C-w><C-j>", "Move focus to the down windows.")
 nmap("<C-k>", "<C-w><C-k>", "Move focus to the up windows.")

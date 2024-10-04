@@ -23,7 +23,11 @@ local function map(mode, keymap, action, options)
   end
 
   if opts == {} then
-    opts = { silent = true, desc = description }
+    opts = {
+      silent = true,
+      desc = description,
+      -- buffer = vim.api.nvim_get_current_buf()
+    }
   end
 
   local keyset = vim.keymap.set
