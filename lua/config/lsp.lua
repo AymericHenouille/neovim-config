@@ -34,6 +34,17 @@ local function lsphandlers(lspconfig)
           }
         }
       })
+    end,
+    ["angularls"] = function()
+      lspconfig.angularls.setup({
+        filetypes = {
+          "typescript",
+          "html",
+          "typescriptreact",
+          "typescript.tsx",
+          "htmlangular",
+        },
+      })
     end
   }
 end
