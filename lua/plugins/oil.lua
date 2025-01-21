@@ -13,7 +13,7 @@ return {
     nmap("-", function()
       local hasfloatingwin = require("utils.hasfloatingwin")
       if not hasfloatingwin() then
-        vim.cmd("Oil")
+        vim.cmd("Oil --float")
       end
     end, "Open parent directory")
   end
