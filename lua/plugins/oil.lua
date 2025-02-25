@@ -1,20 +1,25 @@
 return {
   "stevearc/oil.nvim",
-  dependencies = {
-    { "echasnovski/mini.icons", opts = {} }
+  name = "oil",
+  lazy = true,
+  keys = { "-" },
+  opts = {
+    default_file_explorer = true,
+    skip_confirm_for_simple_edits = true,
+    autosave_changes = true,
+    view_options = {
+      show_hidden = true,
+    },
   },
-  config = function()
-    local iol = require("oil")
-    iol.setup({
-      default_file_explorer = true,
-      skip_confirm_for_simple_edits = true
-    })
-    local nmap = require("utils.map").nmap
+  config = function(_, opts)
+    local oil = require("oil")
+    oil.setup(opts)
+    local nmap = require("features.map").nmap
     nmap("-", function()
-      local hasfloatingwin = require("utils.hasfloatingwin")
+      local hasfloatingwin = require("features.win").hasfloatingwin 
       if not hasfloatingwin() then
-        vim.cmd("Oil")
+        vim.cmd("Oil --float")
       end
-    end, "Open parent directory")
-  end
+    end, "Open parent directory with oil")
+  end,
 }
