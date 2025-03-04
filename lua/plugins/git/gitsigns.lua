@@ -1,5 +1,3 @@
-print("nippet")
-
 return {
   "lewis6991/gitsigns.nvim",
   dependencies = {
@@ -13,7 +11,7 @@ return {
     linehl = false,
     word_diff = false,
     current_line_blame = true,
-    on_attach = function(buf)
+    on_attach = function()
       local gitsigns = require("gitsigns")
       local nmap = require("features.map").nmap
       nmap("]c", function()
@@ -27,11 +25,19 @@ return {
           gitsigns.nav_hunk("prev")
         end
       end, "Navigate to the previous git hunk")
+
+      nmap("<LEADER>hp", gitsigns.preview_hunk, "Preview the hunk under the cursor")
+      nmap("<LEADER>hr", gitsigns.reset_hunk, "Reset the hunk under the cursor")
+
+      nmap("<LEADER>tb", gitsigns.toggle_current_line_blame "Toggle the git blame line")
+      nmap("<LEADER>td", gitsigns.toggle_deleted, "Toggle the deleted git lines")
+      nmap("<LEADER>tw", gitsigns.toggle_word_diff, "Toggle git word diff")
+
+      nmap("<LEADER>hh", function()
+        gitsigns.toggle_linehl()
+        gitsigns.toggle_numhl()
+      end, "Toggle highlight git hunk")
     end
   },
-  config = function(_, opts)
-    local gitsigns = require("gitsigns")
-    gitsigns.setup(opts)
-  end,
 }
 
