@@ -1,4 +1,4 @@
-print("ewok")
+print("nippet")
 
 return {
   "lewis6991/gitsigns.nvim",
