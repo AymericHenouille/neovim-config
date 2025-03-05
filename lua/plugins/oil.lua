@@ -16,7 +16,7 @@ return {
     oil.setup(opts)
     local nmap = require("features.map").nmap
     nmap("-", function()
-      local hasfloatingwin = require("features.win").hasfloatingwin 
+      local hasfloatingwin = require("features.win").hasfloatingwin
       if not hasfloatingwin() then
         vim.cmd("Oil --float")
       end
