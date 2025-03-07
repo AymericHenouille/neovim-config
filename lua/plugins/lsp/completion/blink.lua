@@ -6,7 +6,7 @@ return {
     require("plugins.lsp.completion.luasnip"),
   },
   opts = {
-    keymap = { preset = "enter" },
+    keymap = { preset = "super-tab" },
     completion = {
       ghost_text = { enabled = true },
       menu = {

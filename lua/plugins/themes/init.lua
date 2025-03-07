@@ -1,3 +1,4 @@
-return { 
-  require("plugins.themes.catppuccin")
+return {
+  require("plugins.themes.lualine"),
+  require("plugins.themes.catppuccin"),
 }
