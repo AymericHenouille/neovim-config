@@ -28,6 +28,7 @@ return {
     },
   },
   config = function(_, opts)
+    vim.opt.termguicolors = true
     local catppuccin = require("catppuccin")
     catppuccin.setup(opts)
     vim.cmd(":colorscheme catppuccin")
