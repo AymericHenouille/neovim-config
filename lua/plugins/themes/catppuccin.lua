@@ -8,7 +8,7 @@ return {
         light = "latte",
         dark = "frappe",
     },
-    transparent_background = true,
+    transparent_background = false,
     show_end_of_buffer = false,
     term_colors = false,
     no_italic = false,

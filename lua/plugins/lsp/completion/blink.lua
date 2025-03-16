@@ -1,14 +1,21 @@
 return {
   "saghen/blink.cmp",
   version = "0.*",
+  build = "cargo build --release",
   dependencies = {
     "xzbdmw/colorful-menu.nvim",
     require("plugins.lsp.completion.luasnip"),
   },
   opts = {
-    keymap = { preset = "super-tab" },
+    keymap = { preset = "default" },
     completion = {
       ghost_text = { enabled = true },
+      list = {
+        selection = {
+          preselect = true,
+          auto_insert = true,
+        },
+      },
       menu = {
         border = "single",
         draw = {

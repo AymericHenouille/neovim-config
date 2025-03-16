@@ -15,7 +15,7 @@ return {
     "nvim-telescope/telescope-ui-select.nvim",
     "nvim-telescope/telescope-media-files.nvim",
     "nvim-telescope/telescope-symbols.nvim",
-    { "tiagovla/scope.nvim", config = true }
+    { "tiagovla/scope.nvim", config = true },
   },
   opts = {
     defaults = {
