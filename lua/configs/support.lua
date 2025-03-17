@@ -1,5 +1,6 @@
 local table = require("features.table")
 local languages = vim.fn.stdpath("config") .. "/lua/configs/languages/*.lua"
+ ---@type string[]
 local paths = vim.fn.split(vim.fn.glob(languages), "\n");
 
 local supports = {}
@@ -30,10 +31,10 @@ local fusion = {
   end,
 }
 
-for _, language in ipairs(supports) do
-  fusion.treesitters = table.mergetables({ fusion.treesitters, language.treesitters or {} })
-  fusion.lspservers = table.mergetables({ fusion.lspservers, language.lspservers or {} })
-  handlers = table.mergetables({ handlers, language.handlers or {} })
+for _, language in pairs(supports) do
+  fusion.treesitters = table.concattables({ fusion.treesitters, language.treesitters or {} })
+  fusion.lspservers = table.concattables({ fusion.lspservers, language.lspservers or {} })
+  handlers = table.concattables({ handlers, language.handlers or {} })
 end
 
 return fusion
