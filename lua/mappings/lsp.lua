@@ -1,0 +1,15 @@
+local map = require("features.map")
+local nmap = map.nmap
+
+nmap("<LEADER>gR", "<cmd>Telescope lsp_references<CR>", "Show LSP references")
+nmap("<LEADER>gD", vim.lsp.buf.declaration, "Go to declaration")
+nmap("<LEADER>gd", "<cmd>Telescope lsp_definitions<CR>", "Show LSP definitions")
+nmap("<LEADER>gi", "<cmd>Telescope lsp_implementations<CR>", "Show LSP implementations")
+nmap("<LEADER>gt", "<cmd>Telescope lsp_type_definitions<CR>", "Show LSP type definitions")
+nmap("<LEADER>ca", vim.lsp.buf.code_action, "See available code actions")
+nmap("<LEADER>rn", vim.lsp.buf.rename, "Smart rename")
+nmap("<LEADER>D", "<cmd>Telescope diagnostics bufnr=0<CR>", "Show buffer diagnostics")
+nmap("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic")
+nmap("]d", vim.diagnostic.goto_next, "Go to next diagnostic")
+nmap("K", vim.lsp.buf.hover, "Show documentation for what is under cursor")
+nmap("<LEADER>rs", ":LspRestart<CR>", "Restart LSP")

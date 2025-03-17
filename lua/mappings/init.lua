@@ -1,0 +1,5 @@
+require("mappings.buffers")
+require("mappings.save")
+require("mappings.windows")
+require("mappings.lsp")
+require("mappings.term")
