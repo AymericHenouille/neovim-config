@@ -8,7 +8,7 @@ return {
         light = "latte",
         dark = "frappe",
     },
-    transparent_background = false,
+    transparent_background = true,
     show_end_of_buffer = false,
     term_colors = false,
     no_italic = false,
@@ -33,4 +33,4 @@ return {
     catppuccin.setup(opts)
     vim.cmd(":colorscheme catppuccin")
   end,
-} 
+}

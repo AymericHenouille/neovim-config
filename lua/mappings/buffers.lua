@@ -13,7 +13,11 @@ local function create_opts(description)
   }
 end
 
-nmap("<TAB>",   "<CMD>BufferLineCycleNext<CR>",   create_opts("Navigate to the next buffer"))
-nmap("<S-TAB>", "<CMD>BufferLineCyclePrev<CR>",   create_opts("Navigate to the previous buffer"))
-nmap("<C-c>",   "<CMD>bd<CR>",                    create_opts("Close the current buffer"))
-nmap("<C-S-C>", "<CMD>BufferLineCloseOthers<CR>", create_opts("Close all buffers expect the current one"))
+nmap("<TAB>", "<cmd>BufferNext<cr>", create_opts("Navigate to the next buffer"))
+nmap("<S-TAB>", "<cmd>BufferPrevious<cr>", create_opts("Navigate to the previous buffer"))
+nmap("<C-c>", "<CMD>BufferClose!<CR>", create_opts("Close the current buffer"))
+nmap("<C-S-C>", "<cmd>BufferCloseAllButCurrent<cr>", create_opts("Close all buffers expect the current one"))
+nmap("<c-,>", "<cmd>BufferMovePrevious<cr>", "Move tab to left")
+nmap("<c-.>", "<cmd>BufferMoveNext<cr>", "Move tab to right")
+nmap("<c-<>", "<cmd>BufferScrollLeft<cr>", "Scroll tab to left")
+nmap("<c->>", "<cmd>BufferScrollRight<cr>", "Scroll tab to right")
