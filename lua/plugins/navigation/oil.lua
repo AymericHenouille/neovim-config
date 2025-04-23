@@ -10,8 +10,9 @@ return {
     view_options = {
       show_hidden = true,
     },
-    win_options = {
-      spell = false,
+    float = {
+      border = "double",
+      preview_split = "right"
     },
   },
   config = function(_, opts)
