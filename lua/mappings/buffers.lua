@@ -21,3 +21,5 @@ nmap("<c-,>", "<cmd>BufferMovePrevious<cr>", "Move tab to left")
 nmap("<c-.>", "<cmd>BufferMoveNext<cr>", "Move tab to right")
 nmap("<c-<>", "<cmd>BufferScrollLeft<cr>", "Scroll tab to left")
 nmap("<c->>", "<cmd>BufferScrollRight<cr>", "Scroll tab to right")
+
+nmap("<ESC><ESC>", "<CMD>noh<CR>", "Remove highlight")

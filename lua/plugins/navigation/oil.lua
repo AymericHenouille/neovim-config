@@ -10,6 +10,9 @@ return {
     view_options = {
       show_hidden = true,
     },
+    win_options = {
+      spell = false,
+    },
   },
   config = function(_, opts)
     local oil = require("oil")
