@@ -8,6 +8,6 @@ return {
       vim.o.background = "light"
     end,
     update_interval = 3000,
-    fallback = "dark"
+    fallback = "light"
   },
 }
