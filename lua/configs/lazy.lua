@@ -26,7 +26,6 @@ local function setup_lazy()
     install = { colorscheme = { "habamax" } },
     checker = { enabled = true },
     ui = {
-      backdrop = 0,
       border = "single",
     },
   })

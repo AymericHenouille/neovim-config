@@ -3,13 +3,13 @@ return {
   opts = {
     RGB      = true,
     RRGGBB   = true,
-    names    = true,
+    names    = false,
     RRGGBBAA = true,
     rgb_fn   = true,
     hsl_fn   = true,
     css      = true,
     css_fn   = true,
-    mode     = "foreground",
+    mode     = "background",
   },
   config = function(_, opts)
     local colorizer = require("colorizer")
