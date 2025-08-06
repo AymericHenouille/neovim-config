@@ -12,6 +12,7 @@ return {
   },
   opts = {
     defaults = {
+      path_display = { "smart" },
       mappings = {
         ["i"] = {
           -- Utility action to open all selected files into buffers

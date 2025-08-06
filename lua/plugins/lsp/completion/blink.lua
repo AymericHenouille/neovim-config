@@ -9,7 +9,7 @@ return {
   opts = {
     keymap = { preset = "default" },
     completion = {
-      ghost_text = { enabled = true },
+      ghost_text = { enabled = false },
       list = {
         selection = {
           preselect = true,

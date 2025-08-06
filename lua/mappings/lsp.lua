@@ -18,8 +18,12 @@ nmap("<LEADER>d", function()
   end
 end, "Show buffer diagnostics in float")
 
-nmap("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic")
-nmap("]d", vim.diagnostic.goto_next, "Go to next diagnostic")
+nmap("[d", function()
+  vim.diagnostic.jump({ count = -1, float = true })
+end, "Go to previous diagnostic")
+nmap("]d", function()
+  vim.diagnostic.jump({ count = 1, float = true })
+end, "Go to next diagnostic")
 
 nmap("K", vim.lsp.buf.hover, "Show documentation for what is under cursor")
 nmap("<LEADER>rs", ":LspRestart<CR>", "Restart LSP")
