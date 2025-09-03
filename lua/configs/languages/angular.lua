@@ -20,21 +20,9 @@ local function create_run_angularls_command(root_dir)
 end
 
 return {
-  treesitters = { "html", "css", "scss", "javascript", "json", "jsdoc", "typescript", "angular" },
-  lspservers = { "html", "cssls", "ts_ls", "angularls", "emmet_ls" },
+  treesitters = { "angular" },
+  lspservers = { "angularls", "emmet_ls" },
   handlers = {
-    ["ts_ls"] = function(lspconfig, opts)
-      local options = {
-        settings = {
-          quoteStyle = "single",
-        },
-      }
-      return function()
-        local table = require("features.table")
-        local full_options = table.mergetables({ opts, options })
-        lspconfig.ts_ls.setup(table.mergetables({opts, full_options }))
-      end
-    end,
     ["angularls"] = function(lspconfig, opts)
       local root_dir = vim.fn.getcwd()
       return function()
@@ -51,8 +39,7 @@ return {
             "htmlangular",
           },
         }
-        local table = require("features.table")
-        local full_options = table.mergetables({ opts, options })
+        local full_options = vim.tbl_extend("force", { opts, options })
         lspconfig.angularls.setup(full_options)
       end
     end,
